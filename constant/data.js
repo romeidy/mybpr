@@ -131,6 +131,10 @@ export const menuItems = [
     link: "#",
     child: [
       {
+        childtitle: "Adjusment Rating",
+        childlink: "# ",
+      },
+      {
         childtitle: "Cutoff",
         childlink: "#",
       },
