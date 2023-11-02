@@ -138,6 +138,18 @@ export const menuItems = [
         childtitle: "Reset Cutoff",
         childlink: "#",
       },
+      {
+        childtitle: "Simulasi Angsuran",
+        childlink: "#",
+      },
+      {
+        childtitle: "Calculate PD",
+        childlink: "#",
+      },
+      {
+        childtitle: "Calculate LGD",
+        childlink: "#",
+      },
     ],
   },
   
