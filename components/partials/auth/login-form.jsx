@@ -77,12 +77,12 @@ const LoginForm = () => {
           onChange={() => setChecked(!checked)}
           label="Keep me signed in"
         />
-        <Link
+        {/* <Link
           href="/forgot-password"
           className="text-sm text-slate-800 dark:text-slate-400 leading-6 font-medium"
         >
           Forgot Password?{" "}
-        </Link>
+        </Link> */}
       </div>
 
       <button className="btn btn-dark block w-full text-center">Sign in</button>

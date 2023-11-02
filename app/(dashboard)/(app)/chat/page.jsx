@@ -50,7 +50,7 @@ const ChatPage = () => {
             <MyProfile />
           </div>
           <div className="border-b border-slate-100 dark:border-slate-700 py-1">
-            <div className="search px-3 mx-6 rounded flex items-center space-x-3 rtl:space-x-reverse">
+            <div className="search px-3 mx-6 round  ed flex items-center space-x-3 rtl:space-x-reverse">
               <div className="flex-none text-base text-slate-900 dark:text-slate-400">
                 <Icon icon="bytesize:search" />
               </div>

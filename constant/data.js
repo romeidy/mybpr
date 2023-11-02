@@ -105,6 +105,24 @@ export const menuItems = [
           },
         ],
       },
+      {
+        childtitle: "Financial",
+        childlink: "#",
+        multi_menu: [
+          {
+            multiTitle: "Neraca",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "Laba Rugi",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "Rincian COA",
+            multiLink: "#",
+          },
+        ],
+      },
     ],
   },
   {
@@ -113,12 +131,12 @@ export const menuItems = [
     link: "#",
     child: [
       {
-        childtitle: "Basic Table",
-        childlink: "table-basic",
+        childtitle: "Cutoff",
+        childlink: "#",
       },
       {
-        childtitle: "React Table",
-        childlink: "react-table",
+        childtitle: "Reset Cutoff",
+        childlink: "#",
       },
     ],
   },
