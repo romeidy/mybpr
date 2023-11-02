@@ -111,7 +111,7 @@ const Navmenu = ({ menus }) => {
         ))}
         <li className="single-sidebar-menu">
           <a
-            href="https://dashcode-react-doc.codeshaper.tech/"
+            href=""
             target="_blank"
             className="menu-link"
           >

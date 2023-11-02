@@ -17,12 +17,24 @@ export const menuItems = [
     isHide: true,
     child: [
       {
-        childtitle: "Projects",
-        childlink: "projects",
+        childtitle: "Pemeliharaan Menu",
+        childlink: "#",
       },
       {
-        childtitle: "Project Details",
-        childlink: "project-details",
+        childtitle: "Pemeliharaan Role Menu",
+        childlink: "#",
+      },
+      {
+        childtitle: "Pemeliharaan User Role Menu",
+        childlink: "#",
+      },
+      {
+        childtitle: "Konfigurasi Cabang",
+        childlink: "#",
+      },
+      {
+        childtitle: "Konfigurasi System",
+        childlink: "#",
       },
     ],
   },
@@ -32,12 +44,12 @@ export const menuItems = [
     link: "#",
     child: [
       {
-        childtitle: "Basic",
-        childlink: "basic",
+        childtitle: "Konfigurasi Group Parameter",
+        childlink: "#",
       },
       {
-        childtitle: "Statistic",
-        childlink: "statistic",
+        childtitle: "Konfigurasi Parameter",
+        childlink: "#",
       },
     ],
   },
@@ -47,65 +59,8 @@ export const menuItems = [
     link: "#",
     child: [
       {
-        childtitle: "Typography",
-        childlink: "typography",
-      },
-      {
-        childtitle: "Colors",
-        childlink: "colors",
-      },
-      {
-        childtitle: "Alert",
-        childlink: "alert",
-      },
-      {
-        childtitle: "Button",
-        childlink: "button",
-      },
-      {
-        childtitle: "Card",
-        childlink: "card",
-      },
-      {
-        childtitle: "Carousel",
-        childlink: "carousel",
-      },
-      {
-        childtitle: "Dropdown",
-        childlink: "dropdown",
-      },
-
-      {
-        childtitle: "Modal",
-        childlink: "modal",
-      },
-      {
-        childtitle: "Progress bar",
-        childlink: "progress-bar",
-      },
-      {
-        childtitle: "Placeholder",
-        childlink: "placeholder",
-      },
-      {
-        childtitle: "Tab & Accordion",
-        childlink: "tab-accordion",
-      },
-      {
-        childtitle: "Badges",
-        childlink: "badges",
-      },
-      {
-        childtitle: "Paginatins",
-        childlink: "paginations",
-      },
-      {
-        childtitle: "Video",
-        childlink: "video",
-      },
-      {
-        childtitle: "Tooltip & Popover",
-        childlink: "tooltip-popover",
+        childtitle: "Kredit Individual",
+        childlink: "#",
       },
     ],
   },
@@ -115,60 +70,40 @@ export const menuItems = [
     link: "#",
     child: [
       {
-        childtitle: "Input",
-        childlink: "input",
+        childtitle: "Nominatif",
+        childlink: "#",
+        multi_menu: [
+          {
+            multiTitle: "Kredit",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "Summary Nominatif Kredit",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "Top 100 Account Number",
+            multiLink: "#",
+          },
+        ],
       },
       {
-        childtitle: "Input group",
-        childlink: "input-group",
-      },
-      {
-        childtitle: "Input layout",
-        childlink: "input-layout",
-      },
-      {
-        childtitle: "Form validation",
-        childlink: "form-validation",
-      },
-      {
-        childtitle: "Wizard",
-        childlink: "form-wizard",
-      },
-      {
-        childtitle: "Input mask",
-        childlink: "input-mask",
-      },
-      {
-        childtitle: "File input",
-        childlink: "file-input",
-      },
-      {
-        childtitle: "Form repeater",
-        childlink: "form-repeater",
-      },
-      {
-        childtitle: "Textarea",
-        childlink: "textarea",
-      },
-      {
-        childtitle: "Checkbox",
-        childlink: "checkbox",
-      },
-      {
-        childtitle: "Radio button",
-        childlink: "radio-button",
-      },
-      {
-        childtitle: "Switch",
-        childlink: "switch",
-      },
-      {
-        childtitle: "Select & Vue select",
-        childlink: "select",
-      },
-      {
-        childtitle: "Date time picker",
-        childlink: "date-time-picker",
+        childtitle: "Rincian CKPN",
+        childlink: "#",
+        multi_menu: [
+          {
+            multiTitle: "CKPN",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "PD",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "LGD",
+            multiLink: "#",
+          },
+        ],
       },
     ],
   },
