@@ -132,7 +132,7 @@ export const menuItems = [
     child: [
       {
         childtitle: "Adjusment Rating",
-        childlink: "# ",
+        childlink: "#",
       },
       {
         childtitle: "Cutoff",
