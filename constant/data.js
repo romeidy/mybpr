@@ -162,6 +162,26 @@ export const menuItems = [
         childtitle: "Calculate LGD",
         childlink: "#",
       },
+      {
+        childtitle: "Import Data",
+        childlink: "#",
+      },
+      {
+        childtitle: "Import Data Parameter",
+        childlink: "#",
+      },
+      {
+        childtitle: "Import Data Modifikasi",
+        childlink: "#",
+      },
+      {
+        childtitle: "Import Data Impair Aset",
+        childlink: "#",
+      },
+      {
+        childtitle: "Import Data Adjusment Bucket",
+        childlink: "#",
+      },
     ],
   },
   
