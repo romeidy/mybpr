@@ -21,6 +21,14 @@ export const menuItems = [
         childlink: "#",
       },
       {
+        childtitle: "Pemeliharaan User",
+        childlink: "#",
+      },
+      {
+        childtitle: "Aktivasi akun User",
+        childlink: "#",
+      },
+      {
         childtitle: "Pemeliharaan Role Menu",
         childlink: "#",
       },
@@ -49,7 +57,7 @@ export const menuItems = [
       },
       {
         childtitle: "Konfigurasi Parameter",
-        childlink: "#",
+        childlink: "parameter_setup/konfigurasi_parameter",
       },
     ],
   },
