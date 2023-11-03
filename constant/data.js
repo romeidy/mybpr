@@ -86,6 +86,14 @@ export const menuItems = [
             multiLink: "#",
           },
           {
+            multiTitle: "Kredit Hapus Buku",
+            multiLink: "#",
+          },
+          {
+            multiTitle: "Setoran Transaksi",
+            multiLink: "#",
+          },
+          {
             multiTitle: "Summary Nominatif Kredit",
             multiLink: "#",
           },
