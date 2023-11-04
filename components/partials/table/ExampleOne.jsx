@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
-import React, { useState, useMemo } from "react";
-// import { advancedTable } from "../../../constant/table-data";
+import React, { useState, useMemo, useEffect } from "react";
+import { advancedTable } from "../../../constant/table-data";
 import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
 import Dropdown from "@/components/ui/Dropdown";
@@ -162,10 +162,14 @@ const actions = [
   },
 ];
 
-const ExamapleOne = () => {
+const ExamapleOne = ({tableName}) => {
+  const [name, setName] = useState(null);
+  useEffect(() => {
+    setName(tableName)
+  });
   const columns = useMemo(() => COLUMNS, []);
-  // const data = useMemo(() => advancedTable, []);
-  const data = useMemo(() => [],[]);
+  const data = useMemo(() => advancedTable, []);
+  // const data = useMemo(() => [],[]);
 
   const tableInstance = useTable(
     {
@@ -202,7 +206,7 @@ const ExamapleOne = () => {
     <>
       <Card noborder >
         <div className="md:flex justify-between items-center mb-6">
-          <h4 className="card-title">Parameter</h4>
+          <h4 className="card-title">{name}</h4>
           <div>
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
           </div>
@@ -212,19 +216,18 @@ const ExamapleOne = () => {
             <div className="overflow-hidden">
               <table
                 className="border-t border-slate-100 dark:border-slate-800 min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
-                {...getTableProps} suppressHydrationWarning
+                {...getTableProps()}
               >
-                <thead className=" border-t border-slate-100 dark:border-slate-800" suppressHydrationWarning>
-                {COLUMNS.map((column, i) => (
-                      <th
-                        key={i}
-                        scope="col"
-                        className=" table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700 "
-                        suppressHydrationWarning
-                      >
-                        {column.Header}
-                      </th>
-                    ))}
+                <thead className=" border-t border-slate-100 dark:border-slate-800">      
+                  {headerGroups.map(headerGroup => (
+                    <tr {...headerGroup.getHeaderGroupProps()}>
+                      {headerGroup.headers.map(column => (
+                        <th className=" table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700 " {...column.getHeaderProps()}>
+                          {column.render('Header')}
+                    </th>
+                      ))}
+                    </tr>
+                  ))}
                 </thead>
                 <tbody
                   className="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700"
@@ -242,7 +245,6 @@ const ExamapleOne = () => {
                               key={key}
                               {...restCellProps}
                               className="table-td"
-                              suppressHydrationWarning
                             >
                               {cell.render("Cell")}
                             </td>

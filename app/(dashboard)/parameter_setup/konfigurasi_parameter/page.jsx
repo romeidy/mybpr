@@ -1,38 +1,20 @@
 "use client";
 import React, { useState } from "react";
-import ExampleOne from "@/components/partials/table/ExampleOne";
-import ExampleTwo from "@/components/partials/table/ExampleTwo";
 import Card from "@/components/ui/Card";
 import Textinput from "@/components/ui/Textinput";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
 import { tableData } from "@/constant/table-data";
-
-const columns = [
-  {
-      name: 'Title',
-      selector: row => row.title,
-  },
-  {
-      name: 'Year',
-      selector: row => row.year,
-  },
-];
-
-const data = [
-  {
-      id: 1,
-      title: 'Beetlejuice',
-      year: '1988',
-  },
-  {
-      id: 2,
-      title: 'Ghostbusters',
-      year: '1984',
-  },
-]
+import dynamic from 'next/dynamic'
+const Table = dynamic(() => import('@/components/partials/table/ExampleOne'))
 
 const TableAdvancedPage = () => {
+const [tableName, setTableName] = useState("Parameter");
+
+const handleChange = event => {
+  setTableName(event.target.value)
+  console.log('value is:', event.target.value);
+}
   return (
     <div>
       <div className="grid xl:grid-cols-1 grid-cols-1 gap-5 py-5">
@@ -53,6 +35,7 @@ const TableAdvancedPage = () => {
                 type="text"
                 placeholder="Kode Sandi"
                 horizontal
+                onChange={handleChange}
               />
               <Textinput
                 label="Deskripsi Sandi"
@@ -103,6 +86,7 @@ const TableAdvancedPage = () => {
               <div className="grid grid-cols-4 space-x-2">
                 <Button text="Save" className="btn-primary" />
                 <Button text="Delete" className="btn-primary" />
+                <Button text="Export" className="btn-primary" />
                 <Button text="Reset" className="btn-primary" />
               </div>
             </div>
@@ -111,7 +95,7 @@ const TableAdvancedPage = () => {
        
       </div>
       <div className=" space-y-5">
-        <ExampleOne />
+        <Table tableName={tableName}/>
       </div>
     </div>
   );

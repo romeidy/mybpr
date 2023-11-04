@@ -1,3 +1,4 @@
+export const topMenu = []
 export const menuItems = [
   {
     isHeadr: true,
