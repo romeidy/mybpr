@@ -7,7 +7,6 @@ import Textinput from "@/components/ui/Textinput";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
 import { tableData } from "@/constant/table-data";
-import DataTable from "react-data-table-component";
 
 const columns = [
   {
