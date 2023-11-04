@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React, { useState, useMemo } from "react";
-import { advancedTable } from "../../../constant/table-data";
+// import { advancedTable } from "../../../constant/table-data";
 import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
 import Dropdown from "@/components/ui/Dropdown";
@@ -164,7 +164,8 @@ const actions = [
 
 const ExamapleOne = () => {
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => advancedTable, []);
+  // const data = useMemo(() => advancedTable, []);
+  const data = useMemo(() => [],[]);
 
   const tableInstance = useTable(
     {
@@ -211,7 +212,7 @@ const ExamapleOne = () => {
             <div className="overflow-hidden">
               <table
                 className="border-t border-slate-100 dark:border-slate-800 min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
-                {...getTableProps} 
+                {...getTableProps} suppressHydrationWarning
               >
                 <thead className=" border-t border-slate-100 dark:border-slate-800" suppressHydrationWarning>
                 {COLUMNS.map((column, i) => (
