@@ -5,6 +5,7 @@ import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
 import Dropdown from "@/components/ui/Dropdown";
 import { Menu } from "@headlessui/react";
+
 import {
   useTable,
   useRowSelect,
@@ -161,28 +162,6 @@ const actions = [
   },
 ];
 
-const IndeterminateCheckbox = React.forwardRef(
-  ({ indeterminate, ...rest }, ref) => {
-    const defaultRef = React.useRef();
-    const resolvedRef = ref || defaultRef;
-
-    React.useEffect(() => {
-      resolvedRef.current.indeterminate = indeterminate;
-    }, [resolvedRef, indeterminate]);
-
-    return (
-      <>
-        <input
-          type="checkbox"
-          ref={resolvedRef}
-          {...rest}
-          className="table-checkbox"
-        />
-      </>
-    );
-  }
-);
-
 const ExamapleOne = () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => advancedTable, []);
@@ -196,26 +175,7 @@ const ExamapleOne = () => {
     useGlobalFilter,
     useSortBy,
     usePagination,
-    useRowSelect,
-
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => [
-        {
-          id: "selection",
-          Header: ({ getToggleAllRowsSelectedProps }) => (
-            <div>
-              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-            </div>
-          ),
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-            </div>
-          ),
-        },
-        ...columns,
-      ]);
-    }
+    
   );
   const {
     getTableProps,
@@ -239,45 +199,31 @@ const ExamapleOne = () => {
   const { globalFilter, pageIndex, pageSize } = state;
   return (
     <>
-      <Card noborder>
+      <Card noborder >
         <div className="md:flex justify-between items-center mb-6">
-          <h4 className="card-title">Advanced Table</h4>
+          <h4 className="card-title">Parameter</h4>
           <div>
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
           </div>
         </div>
-        <div className="overflow-x-auto -mx-6">
+        <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
-            <div className="overflow-hidden ">
+            <div className="overflow-hidden">
               <table
-                className="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
-                {...getTableProps}
+                className="border-t border-slate-100 dark:border-slate-800 min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
+                {...getTableProps} 
               >
-                <thead className=" border-t border-slate-100 dark:border-slate-800">
-                  {headerGroups.map((headerGroup) => {
-                    const { key, ...restHeaderGroupProps } =
-                      headerGroup.getHeaderGroupProps();
-                    <tr key={key} {...restHeaderGroupProps}>
-                      {headerGroup.headers.map((column) => {
-                        const { key, ...restColumn } = column.getHeaderProps();
-                        <th
-                          key={key}
-                          {...restColumn}
-                          scope="col"
-                          className=" table-th "
-                        >
-                          {column.render("Header")}
-                          <span>
-                            {column.isSorted
-                              ? column.isSortedDesc
-                                ? " 🔽"
-                                : " 🔼"
-                              : ""}
-                          </span>
-                        </th>;
-                      })}
-                    </tr>;
-                  })}
+                <thead className=" border-t border-slate-100 dark:border-slate-800" suppressHydrationWarning>
+                {COLUMNS.map((column, i) => (
+                      <th
+                        key={i}
+                        scope="col"
+                        className=" table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700 "
+                        suppressHydrationWarning
+                      >
+                        {column.Header}
+                      </th>
+                    ))}
                 </thead>
                 <tbody
                   className="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700"
@@ -295,6 +241,7 @@ const ExamapleOne = () => {
                               key={key}
                               {...restCellProps}
                               className="table-td"
+                              suppressHydrationWarning
                             >
                               {cell.render("Cell")}
                             </td>
