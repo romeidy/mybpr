@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { colors } from "@/constant/data";
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import useDarkMode from "@/hooks/useDarkMode";
 
-const Calculation = ({ height = 335, series = [], labels=[] }) => {
+const Calculation = ({ height = 335, series = [], labels=[] , dataLabels}) => {
   const [isDark] = useDarkMode();
 
   const options = {
     labels: labels,
     dataLabels: {
-      enabled: false,
+      enabled: dataLabels,
     },
 
     colors: [colors.success, colors.warning, "#A3A1FB", colors.info, colors.secondary],

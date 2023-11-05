@@ -84,7 +84,7 @@ export const menuItems = [
     child: [
       {
         childtitle: "Nominatif",
-        childlink: "#",
+        childlink: "#nom",
         multi_menu: [
           {
             multiTitle: "Kredit",
@@ -110,7 +110,7 @@ export const menuItems = [
       },
       {
         childtitle: "Rincian CKPN",
-        childlink: "#",
+        childlink: "#ckpn",
         multi_menu: [
           {
             multiTitle: "CKPN",
@@ -128,7 +128,7 @@ export const menuItems = [
       },
       {
         childtitle: "Financial",
-        childlink: "#",
+        childlink: "#financial",
         multi_menu: [
           {
             multiTitle: "Neraca",

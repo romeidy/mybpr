@@ -8,6 +8,7 @@ import Calculation from "@/components/partials/widget/chart/Calculation";
 import ExampleTwo from "@/components/partials/table/ExampleTwo";
 import HomeBredCurbs from "@/components/partials/HomeBredCurbs";
 const series = [70,18,12];
+const labels = ['Modal Kerja', 'Konsumsi', 'Investasi'];
 const campaigns = [
   {
     name: "Produk A",
@@ -75,7 +76,7 @@ const CrmPage = () => {
               </Card>
               <Card title="CKPN/Segment (%)" headerslot={<SelectMonth />}>
                 <div className="legend-ring3">
-                  <Calculation series={series}/>
+                  <Calculation series={series} labels={labels} dataLabels={true}/>
                 </div>
               </Card>
             </div>

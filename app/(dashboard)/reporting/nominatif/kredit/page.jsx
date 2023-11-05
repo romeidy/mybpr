@@ -172,7 +172,7 @@ const NominatifKredit = () => {
         </Card>
         <Card title="Total Outstanding per Produk">
           <div className="legend-ring3 pt-10">
-            <Calculation series={series} labels={labels} />
+            <Calculation series={series} labels={labels} dataLabels={false}/>
           </div>
           <div className="text-center pt-10">
             <label>Total Outstanding : Rp. 120.000.000.000</label>
