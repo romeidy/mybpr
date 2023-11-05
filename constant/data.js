@@ -8,7 +8,7 @@ export const menuItems = [
     title: "Dashboard",
     isHide: true,
     icon: "heroicons-outline:home",
-    link: "crm",
+    link: "dashboard",
   },
 
   {
@@ -100,11 +100,11 @@ export const menuItems = [
           },
           {
             multiTitle: "Summary Nominatif Kredit",
-            multiLink: "#",
+            multiLink: "reporting/nominatif/summary",
           },
           {
             multiTitle: "Top 100 Account Number",
-            multiLink: "#",
+            multiLink: "reporting/nominatif/top_nominatif",
           },
         ],
       },

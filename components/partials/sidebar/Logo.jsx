@@ -25,7 +25,7 @@ const SidebarLogo = ({ menuHover }) => {
       
       `}
     >
-      <Link href="/crm">
+      <Link href="/dashboard">
         <div className="flex items-center space-x-4 h-1 ">
           <div className="logo-icon">
             {!isDark && !isSemiDark ? (
