@@ -22,8 +22,8 @@ const initialUsers = () => {
           },
           {
             id: uuidv4(),
-            name: "a0000",
-            username: "a0000",
+            name: "demo",
+            username: "demo",
             password: "P@ssw0rd",
           },
         ];
@@ -43,8 +43,8 @@ const initialUsers = () => {
     },
     {
       id: uuidv4(),
-      name: "a0000",
-      username: "a0000",
+      name: "demo",
+      username: "demo",
       password: "P@ssw0rd",
     },
   ];

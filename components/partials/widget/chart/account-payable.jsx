@@ -7,7 +7,7 @@ const AccountPayable = ({ height = 300 }) => {
   const [isDark] = useDarkMode();
   const series = [
     {
-      data: [31, 40, 28, 51, 42, 109, 100],
+      data: [31, 40, 28, 51, 42, 109,],
     },
   ];
   const options = {
@@ -66,15 +66,14 @@ const AccountPayable = ({ height = 300 }) => {
       },
     },
     xaxis: {
-      type: "datetime",
+      type: "text",
       categories: [
-        "2018-09-19T00:00:00.000Z",
-        "2018-09-19T01:30:00.000Z",
-        "2018-09-19T02:30:00.000Z",
-        "2018-09-19T03:30:00.000Z",
-        "2018-09-19T04:30:00.000Z",
-        "2018-09-19T05:30:00.000Z",
-        "2018-09-19T06:30:00.000Z",
+       "March",
+       "May",
+       "Jun",
+       "July",
+       "Aug",
+       "Nov",
       ],
       labels: {
         style: {

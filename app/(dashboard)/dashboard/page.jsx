@@ -7,6 +7,7 @@ import StackBarChart from "@/components/partials/widget/chart/stack-bar";
 import Calculation from "@/components/partials/widget/chart/Calculation";
 import ExampleTwo from "@/components/partials/table/ExampleTwo";
 import HomeBredCurbs from "@/components/partials/HomeBredCurbs";
+const series = [70,18,12];
 const campaigns = [
   {
     name: "Produk A",
@@ -74,7 +75,7 @@ const CrmPage = () => {
               </Card>
               <Card title="CKPN/Segment (%)" headerslot={<SelectMonth />}>
                 <div className="legend-ring3">
-                  <Calculation />
+                  <Calculation series={series}/>
                 </div>
               </Card>
             </div>

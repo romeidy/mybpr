@@ -77,7 +77,7 @@ const Login = () => {
                 
               </div>
               <div className="auth-footer text-center">
-                Copyright 2023, MyBPR All Rights Reserved.
+                Copyright 2023, MyBPR All Rights Reserved. V0.11.29
               </div>
             </div>
           </div>

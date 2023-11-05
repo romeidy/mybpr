@@ -58,7 +58,7 @@ const LoginForm = () => {
       <Textinput
         name="username"
         label="username"
-        defaultValue="a0000"
+        defaultValue="demo"
         type="text"
         register={register}
         error={errors?.username}

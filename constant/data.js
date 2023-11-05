@@ -114,15 +114,15 @@ export const menuItems = [
         multi_menu: [
           {
             multiTitle: "CKPN",
-            multiLink: "#",
+            multiLink: "reporting/rincian_ckpn/ckpn",
           },
           {
             multiTitle: "PD",
-            multiLink: "#",
+            multiLink: "reporting/rincian_ckpn/pd",
           },
           {
             multiTitle: "LGD",
-            multiLink: "#",
+            multiLink: "reporting/rincian_ckpn/lgd",
           },
         ],
       },

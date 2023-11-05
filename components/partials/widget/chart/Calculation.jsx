@@ -4,17 +4,16 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import useDarkMode from "@/hooks/useDarkMode";
 
-const Calculation = ({ height = 335 }) => {
+const Calculation = ({ height = 335, series = [], labels=[] }) => {
   const [isDark] = useDarkMode();
-  const series = [44, 55, 30];
 
   const options = {
-    labels: ["70% Modal Kerja", "18% Konsumsi", "12% Investasi"],
+    labels: labels,
     dataLabels: {
-      enabled: true,
+      enabled: false,
     },
 
-    colors: [colors.success, colors.warning, "#A3A1FB"],
+    colors: [colors.success, colors.warning, "#A3A1FB", colors.info, colors.secondary],
     legend: {
       position: "bottom",
       fontSize: "12px",
