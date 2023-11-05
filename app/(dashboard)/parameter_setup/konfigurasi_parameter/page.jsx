@@ -8,12 +8,11 @@ import { tableData } from "@/constant/table-data";
 import dynamic from 'next/dynamic'
 const Table = dynamic(() => import('@/components/partials/table/ExampleOne'))
 
-const TableAdvancedPage = () => {
+const KonfigurasiParameter = () => {
 const [tableName, setTableName] = useState("Parameter");
 
 const handleChange = event => {
-  setTableName(event.target.value)
-  console.log('value is:', event.target.value);
+  setTableName(event.target.value);
 }
   return (
     <div>
@@ -23,7 +22,7 @@ const handleChange = event => {
             <div className="grid col-span-6 space-y-2">
               <Select
                 label="Kode Grup"
-                id="h_Fullname"
+                id="h_kode_grup"
                 type="text"
                 placeholder="Kode Grup"
                 options={["Option 1", "Option 2", "Option 3"]}
@@ -31,7 +30,7 @@ const handleChange = event => {
               />
               <Textinput
                 label="Kode Sandi"
-                id="h_email"
+                id="h_kode_sandi"
                 type="text"
                 placeholder="Kode Sandi"
                 horizontal
@@ -39,35 +38,35 @@ const handleChange = event => {
               />
               <Textinput
                 label="Deskripsi Sandi"
-                id="h_phone"
+                id="h_desc_sandi"
                 type="text"
                 placeholder="Deskripsi Sandi"
                 horizontal
               />
               <Textinput
                 label="Kode Lain"
-                id="h_phone"
+                id="h_kode_lain"
                 type="text"
                 placeholder="Kode Lain"
                 horizontal
               />
               <Textinput
                 label="Deskripsi Lain"
-                id="h_phone"
+                id="h_desc_lain"
                 type="text"
                 placeholder="Deskripsi Lain"
                 horizontal
               />
               <Textinput
                 label="Kode Lain-lain"
-                id="h_phone"
+                id="h_kode_lain2"
                 type="text"
                 placeholder="Kode Lain-lain"
                 horizontal
               />
               <Textinput
                 label="Deskripsi Lain-lain"
-                id="h_phone"
+                id="h_desc_lain2"
                 type="text"
                 placeholder="Deskripsi Lain-lain"
                 horizontal
@@ -75,7 +74,7 @@ const handleChange = event => {
               <div style={{"margin-top":"-5px"}} className="pb-2">
                 <Select
                   label="Status"
-                  id="h_Fullname"
+                  id="h_status"
                   type="text"
                   placeholder="Kode Grup"
                   options={["Aktif", "Tidak Aktif"]}
@@ -101,4 +100,4 @@ const handleChange = event => {
   );
 };
 
-export default TableAdvancedPage;
+export default KonfigurasiParameter;

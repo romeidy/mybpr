@@ -54,7 +54,7 @@ export const menuItems = [
     child: [
       {
         childtitle: "Konfigurasi Group Parameter",
-        childlink: "#",
+        childlink: "parameter_setup/konfigurasi_group_parameter",
       },
       {
         childtitle: "Konfigurasi Parameter",
@@ -88,7 +88,7 @@ export const menuItems = [
         multi_menu: [
           {
             multiTitle: "Kredit",
-            multiLink: "#",
+            multiLink: "reporting/nominatif/kredit",
           },
           {
             multiTitle: "Kredit Hapus Buku",
