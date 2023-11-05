@@ -153,11 +153,7 @@ export const menuItems = [
     child: [
       {
         childtitle: "Cutoff",
-        childlink: "#",
-      },
-      {
-        childtitle: "Reset Cutoff",
-        childlink: "#",
+        childlink: "tools/cutoff",
       },
       {
         childtitle: "Simulasi Angsuran",

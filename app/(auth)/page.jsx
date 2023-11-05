@@ -17,8 +17,8 @@ const Login = () => {
                 <img
                   src={
                     isDark
-                      ? "/assets/images/logo/mybpr.jpeg"
-                      : "/assets/images/logo/mybpr.jpeg"
+                      ? "/assets/images/logo/mybpr.png"
+                      : "/assets/images/logo/mybpr.png"
                   }
                   alt=""
                   className="mb-10"
@@ -41,8 +41,8 @@ const Login = () => {
                 <img
                   src={
                     isDark
-                      ? "/assets/images/logo/mybpr.jpeg"
-                      : "/assets/images/logo/mybpr.jpeg"
+                      ? "/assets/images/logo/mybpr.png"
+                      : "/assets/images/logo/mybpr.png"
                   }
                   alt=""
                   className="mb-10"
@@ -58,8 +58,8 @@ const Login = () => {
                     <img
                       src={
                         isDark
-                          ? "/assets/images/logo/mybpr.jpeg"
-                          : "/assets/images/logo/mybpr.jpeg"
+                          ? "/assets/images/logo/mybpr.png"
+                          : "/assets/images/logo/mybpr.png"
                       }
                       alt=""
                       className="mx-auto"

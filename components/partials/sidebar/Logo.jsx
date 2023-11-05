@@ -29,9 +29,9 @@ const SidebarLogo = ({ menuHover }) => {
         <div className="flex items-center space-x-4 h-1 ">
           <div className="logo-icon">
             {!isDark && !isSemiDark ? (
-              <img src="/assets/images/logo/mybpr.jpeg" alt="" />
+              <img src="/assets/images/logo/mybpr.png" alt="" />
             ) : (
-              <img src="/assets/images/logo/mybpr.jpeg" alt="" />
+              <img src="/assets/images/logo/mybpr-dark.svg" alt="" />
             )}
           </div>
           {/* {(!collapsed || menuHover) && (

@@ -17,8 +17,8 @@ const Logo = () => {
             <img
               src={
                 isDark
-                  ? "/assets/images/logo/mybpr.jpeg"
-                  : "/assets/images/logo/mybpr.jpeg"
+                  ? "/assets/images/logo/mybpr.png"
+                  : "/assets/images/logo/mybpr.png"
               }
               alt=""
             />
@@ -26,8 +26,8 @@ const Logo = () => {
             <img
               src={
                 isDark
-                  ? "/assets/images/logo/mybpr.jpeg"
-                  : "/assets/images/logo/mybpr.jpeg"
+                  ? "/assets/images/logo/mybpr.png"
+                  : "/assets/images/logo/mybpr.png"
               }
               alt=""
             />

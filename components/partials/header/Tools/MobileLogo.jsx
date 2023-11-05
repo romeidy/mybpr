@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import useDarkMode from "@/hooks/useDarkMode";
 
-import MainLogo from "@/assets/images/logo/mybpr.jpeg";
-import LogoWhite from "@/assets/images/logo/mybpr.jpeg";
+import MainLogo from "@/assets/images/logo/mybpr.png";
+import LogoWhite from "@/assets/images/logo/mybpr.png";
 const MobileLogo = () => {
   const [isDark] = useDarkMode();
   return (
