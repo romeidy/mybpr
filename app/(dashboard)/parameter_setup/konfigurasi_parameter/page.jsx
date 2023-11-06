@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
 import { tableData } from "@/constant/table-data";
 import dynamic from 'next/dynamic'
-const Table = dynamic(() => import('@/components/partials/table/ExampleOne'))
+const Table = dynamic(() => import('@/components/partials/table/TablePagination'))
 
 const KonfigurasiParameter = () => {
 const [tableName, setTableName] = useState("Parameter");

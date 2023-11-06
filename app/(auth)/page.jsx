@@ -72,8 +72,7 @@ const Login = () => {
                     Sign in to your account
                   </div>
                 </div>
-                <LoginForm />
-               
+                <LoginForm /> 
                 
               </div>
               <div className="auth-footer text-center">

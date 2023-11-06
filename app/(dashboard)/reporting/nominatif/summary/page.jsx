@@ -4,7 +4,7 @@ import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { tableData } from "@/constant/table-data";
 import dynamic from 'next/dynamic'
-const Table = dynamic(() => import('@/components/partials/table/ExampleOne'))
+const Table = dynamic(() => import('@/components/partials/table/TablePagination'))
 import Flatpickr from "react-flatpickr";
 
 const SummaryNominatif = () => {

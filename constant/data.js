@@ -161,7 +161,7 @@ export const menuItems = [
       },
       {
         childtitle: "Calculate PD",
-        childlink: "#",
+        childlink: "tools/calculate_pd",
       },
       {
         childtitle: "Calculate LGD",

@@ -162,10 +162,10 @@ const actions = [
   },
 ];
 
-const ExamapleOne = ({tableName}) => {
+const TablePagination = ({ tableName }) => {
   const [name, setName] = useState(null);
   useEffect(() => {
-    setName(tableName)
+    setName(tableName);
   });
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => advancedTable, []);
@@ -180,7 +180,7 @@ const ExamapleOne = ({tableName}) => {
     useGlobalFilter,
     useSortBy,
     usePagination,
-    
+    useRowSelect
   );
   const {
     getTableProps,
@@ -204,7 +204,7 @@ const ExamapleOne = ({tableName}) => {
   const { globalFilter, pageIndex, pageSize } = state;
   return (
     <>
-      <Card noborder >
+      <Card noborder>
         <div className="md:flex justify-between items-center mb-6">
           <h4 className="card-title">{name}</h4>
           <div>
@@ -218,13 +218,16 @@ const ExamapleOne = ({tableName}) => {
                 className="border-t border-slate-100 dark:border-slate-800 min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
                 {...getTableProps()}
               >
-                <thead className=" border-t border-slate-100 dark:border-slate-800">      
-                  {headerGroups.map(headerGroup => (
+                <thead className=" border-t border-slate-100 dark:border-slate-800">
+                  {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
-                      {headerGroup.headers.map(column => (
-                        <th className=" table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700 " {...column.getHeaderProps()}>
-                          {column.render('Header')}
-                    </th>
+                      {headerGroup.headers.map((column) => (
+                        <th
+                          className=" table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700 "
+                          {...column.getHeaderProps()}
+                        >
+                          {column.render("Header")}
+                        </th>
                       ))}
                     </tr>
                   ))}
@@ -332,4 +335,4 @@ const ExamapleOne = ({tableName}) => {
   );
 };
 
-export default ExamapleOne;
+export default TablePagination;

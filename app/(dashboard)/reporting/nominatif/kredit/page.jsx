@@ -7,7 +7,7 @@ import Select from "@/components/ui/Select";
 import { tableData } from "@/constant/table-data";
 import dynamic from "next/dynamic";
 import Checkbox from "@/components/ui/Checkbox";
-const Table = dynamic(() => import("@/components/partials/table/ExampleOne"));
+const Table = dynamic(() => import("@/components/partials/table/TablePagination"));
 import Flatpickr from "react-flatpickr";
 import Calculation from "@/components/partials/widget/chart/Calculation";
 

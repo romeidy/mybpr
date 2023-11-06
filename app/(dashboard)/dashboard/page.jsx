@@ -31,7 +31,7 @@ const campaigns = [
     value: "10%",
   },
 ];
-const CrmPage = () => {
+const Dashboard = () => {
   return (
     <div>
       <HomeBredCurbs title="Dashboard" />
@@ -87,4 +87,4 @@ const CrmPage = () => {
   );
 };
 
-export default CrmPage;
+export default Dashboard;
