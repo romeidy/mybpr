@@ -5,6 +5,8 @@ import { Menu, Transition } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogout } from "@/components/partials/auth/store";
 import { useRouter } from "next/navigation";
+import { logout } from "@/app/(dashboard)/(utils)/utils";
+import Cookies from "js-cookie";
 
 const ProfileLabel = () => {
   return (
@@ -33,6 +35,15 @@ const ProfileLabel = () => {
 const Profile = () => {
   const dispatch = useDispatch();
   const router = useRouter();
+  const tokens = Cookies.get("token");
+  async function handleLogoutToken() {
+    logout(tokens)
+        .then(function(result) {
+          const valid = result
+            router.replace("/");
+            return
+        });
+  }
 
   const ProfileMenu = [
     {
@@ -47,7 +58,7 @@ const Profile = () => {
       label: "Logout",
       icon: "heroicons-outline:login",
       action: () => {
-        dispatch(handleLogout(false));
+        handleLogoutToken();
       },
     },
   ];

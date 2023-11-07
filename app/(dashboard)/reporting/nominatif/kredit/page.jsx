@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { validateJwt } from "@/app/(dashboard)/(utils)/utils";
 import Cookies from "js-cookie";
 import Card from "@/components/ui/Card";
 import Textinput from "@/components/ui/Textinput";
@@ -19,45 +20,43 @@ import Calculation from "@/components/partials/widget/chart/Calculation";
 const NominatifKredit = () => {
   const router = useRouter();
 
-  useEffect(() => {
-    const token = Cookies.get("token");
-
-    if (!token) {
-      toast.error("Invalid credentials", {
-        position: "top-right",
-        autoClose: 3500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+  useEffect( () => {
+    const tokens = Cookies.get("token");
+    if (!tokens) {
       router.replace("/"); 
-      // If no token is found, redirect to login page
       return;
     }
 
-    const validateToken = async () => {
-      try {
-        let res = await fetch("http://localhost:8000/login/validate/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=utf8",
-        },
-        body: JSON.stringify({
-          token: token,
-        }),
+    validateJwt(tokens)
+      .then(function(result) {
+        const valid = result
+        if (!valid){
+          router.replace("/");
+          return
+        };
       });
 
-        if (!res.ok) throw new Error("Token validation failed");
-      } catch (error) {
-        console.error(error);
-        router.replace("/"); // Redirect to login if token validation fails
-      }
-    };
+    // const validateToken = async (tokenFromCookie) => {
+    //   const token = tokenFromCookie
+    //   try {
+    //     let res = await fetch("http://localhost:8000/login/validate/", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json; charset=utf8",
+    //     },
+    //     body: JSON.stringify({
+    //       token: token,
+    //     }),
+    //   });
 
-    validateToken();
+    //     if (!res.ok) throw new Error("Token validation failed");
+    //   } catch (error) {
+    //     console.error(error);
+    //     router.replace("/"); // Redirect to login if token validation fails
+    //   }
+    // };
+
+    // validateToken(tokens);
   }, [router]);
   const series = [200, 400, 30, 55, 30, 55, 30, 55, 30, 55];
   const labels = [

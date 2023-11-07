@@ -1,8 +1,5 @@
-import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
-
-
-export const validateToken = async (token) => {
+export const validateJwt = async (tokens) => {
+    const token = tokens;
     try {
         let res = await fetch("http://localhost:8000/login/validate/", {
         method: "POST",
@@ -22,22 +19,24 @@ export const validateToken = async (token) => {
     }
 };
 
-export const checkKue = (tokens) =>{
+export const logout = async (tokens) => {
+    console.log("logout")
     const token = tokens;
-    if (!token) {
-        toast.error("Invalid credentials", {
-        position: "top-right",
-        autoClose: 3500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
+    try {
+        let res = await fetch("http://localhost:8000/login/logout/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf8",
+        },
+        body: JSON.stringify({
+            token: token,
+        }),
         });
-        // If no token is found, redirect to login page
-        return false;
-    }   
-    return validateToken(token)
-}
 
+        if (!res.ok) throw new Error("Token validation failed");
+        return true;
+    } catch (error) {
+        console.error(error); // Redirect to login if token validation fails
+        return false;
+    }
+};
