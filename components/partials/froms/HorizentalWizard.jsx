@@ -5,6 +5,7 @@ import Textarea from "@/components/ui/Textarea";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
+import Select from "@/components/ui/Select";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -16,7 +17,7 @@ const steps = [
   },
   {
     id: 2,
-    title: "Personal info-500",
+    title: "Pemberian Wewenang",
   },
   {
     id: 3,
@@ -113,7 +114,7 @@ const FormWizard = () => {
 
   return (
     <div>
-      <Card title="Horizontal">
+      <Card title="Pembuatan User">
         <div>
           <div className="flex z-[5] items-center relative justify-center md:mx-8">
             {steps.map((item, i) => (
@@ -164,14 +165,14 @@ const FormWizard = () => {
                   <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 pt-10">
                     <div className="lg:col-span-3 md:col-span-2 col-span-1">
                       <h4 className="text-base text-slate-800 dark:text-slate-300 my-6">
-                        Enter Your Account Details
+
                       </h4>
                     </div>
                     <Textinput
-                      label="Username"
+                      label="User ID"
                       type="text"
                       placeholder="Type your User Name"
-                      name="username"
+                      name="userid"
                       error={errors.username}
                       register={register}
                     />
@@ -183,12 +184,12 @@ const FormWizard = () => {
                       error={errors.fullname}
                       register={register}
                     />
-                    <Textinput
-                      label="Email"
-                      type="email"
-                      placeholder="Type your email"
-                      name="email"
-                      error={errors.email}
+                    <Select
+                      label="Cabang"
+                      placeholder="Cabang"
+                      name="cabang"
+                      type="text"
+                      options={["001 - Kantor Pusat", "1001 - Cabang Utama"]}
                       register={register}
                     />
                     <InputGroup

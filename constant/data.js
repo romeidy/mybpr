@@ -22,6 +22,10 @@ export const menuItems = [
         childlink: "#",
       },
       {
+        childtitle: "Pembuatan User",
+        childlink: "general_setup/pembuatan_user",
+      },
+      {
         childtitle: "Pemeliharaan User",
         childlink: "#",
       },

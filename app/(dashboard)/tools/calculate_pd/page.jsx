@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import dynamic from "next/dynamic";
+import HorizentalWizard from "@/components/partials/froms/HorizentalWizard"
 const Table = dynamic(() =>
   import("@/components/partials/table/TablePagination")
 );

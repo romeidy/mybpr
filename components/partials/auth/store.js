@@ -24,7 +24,7 @@ const initialUsers = () => {
             id: uuidv4(),
             name: "demo",
             username: "demo",
-            password: "P@ssw0rd",
+            password: "password",
           },
         ];
   }
@@ -45,7 +45,7 @@ const initialUsers = () => {
       id: uuidv4(),
       name: "demo",
       username: "demo",
-      password: "P@ssw0rd",
+      password: "password",
     },
   ];
 };

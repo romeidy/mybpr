@@ -28,16 +28,36 @@ const LoginForm = () => {
     mode: "all",
   });
   const router = useRouter();
-  const onSubmit = (data) => {
-    const user = users.find(
-      (user) => user.username === data.username && user.password === data.password
-    );
-    if (user) {
+  async function onSubmit(data) {
+    try {
+      console.log(data)
+      let response = await fetch("http://localhost:8000/login/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf8",
+        },
+        body: JSON.stringify({
+          username: data.username,
+          password: data.password,
+        }),
+      });
+      // const response = await fetch("http://localhost:8000/users", {
+      //   method: "GET",
+      // });
+      console.log(response)
+      if (!response.ok) throw new Error("Login failed");
+      const res = await response.json()
+      
+      const token = res.token
+      console.log(token)
+      document.cookie = `token=${token}; path=/`;
+      // router.push("/dashboard");
       dispatch(handleLogin(true));
       setTimeout(() => {
         router.push("/dashboard");
       }, 1500);
-    } else {
+    } catch (error) {
+      console.error(error);
       toast.error("Invalid credentials", {
         position: "top-right",
         autoClose: 1500,
@@ -67,7 +87,7 @@ const LoginForm = () => {
         name="password"
         label="password"
         type="password"
-        defaultValue="P@ssw0rd"
+        defaultValue="password"
         register={register}
         error={errors.password}
       />

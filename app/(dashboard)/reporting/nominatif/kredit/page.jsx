@@ -1,5 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 import Card from "@/components/ui/Card";
 import Textinput from "@/components/ui/Textinput";
 import Button from "@/components/ui/Button";
@@ -7,11 +10,55 @@ import Select from "@/components/ui/Select";
 import { tableData } from "@/constant/table-data";
 import dynamic from "next/dynamic";
 import Checkbox from "@/components/ui/Checkbox";
-const Table = dynamic(() => import("@/components/partials/table/TablePagination"));
+const Table = dynamic(() =>
+  import("@/components/partials/table/TablePagination")
+);
 import Flatpickr from "react-flatpickr";
 import Calculation from "@/components/partials/widget/chart/Calculation";
 
 const NominatifKredit = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+
+    if (!token) {
+      toast.error("Invalid credentials", {
+        position: "top-right",
+        autoClose: 3500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      router.replace("/"); 
+      // If no token is found, redirect to login page
+      return;
+    }
+
+    const validateToken = async () => {
+      try {
+        let res = await fetch("http://localhost:8000/login/validate/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf8",
+        },
+        body: JSON.stringify({
+          token: token,
+        }),
+      });
+
+        if (!res.ok) throw new Error("Token validation failed");
+      } catch (error) {
+        console.error(error);
+        router.replace("/"); // Redirect to login if token validation fails
+      }
+    };
+
+    validateToken();
+  }, [router]);
   const series = [200, 400, 30, 55, 30, 55, 30, 55, 30, 55];
   const labels = [
     "Produk A",
@@ -172,7 +219,7 @@ const NominatifKredit = () => {
         </Card>
         <Card title="Total Outstanding per Produk">
           <div className="legend-ring3 pt-10">
-            <Calculation series={series} labels={labels} dataLabels={false}/>
+            <Calculation series={series} labels={labels} dataLabels={false} />
           </div>
           <div className="text-center pt-10">
             <label>Total Outstanding : Rp. 120.000.000.000</label>
