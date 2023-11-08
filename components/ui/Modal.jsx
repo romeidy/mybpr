@@ -1,7 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useState } from "react";
 import Icon from "@/components/ui/Icon";
-import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { handleLogin } from "../partials/auth/store";
 import { useRouter } from "next/navigation";
@@ -29,7 +28,9 @@ const Modal = ({
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  const data = { username: username, password: password };
+  const data = { username: username,
+                password: password 
+  };
   const [hasil, setHasil] = useState(true);
 
   async function onSubmit(data) {
@@ -46,51 +47,81 @@ const Modal = ({
       }).then(async function (result) {
         const rez = await result.json();
         console.log(rez.session);
-        setShowModal(rez.session);
-        setHasil(rez.session);
+        if(!rez.session){
+          try {
+            console.log('ngelogin')
+            let response = await fetch("http://localhost:8000/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json; charset=utf8",
+              },
+              body: JSON.stringify({
+                username: data.username,
+                password: data.password,
+              }),
+            });
+            if (!response.ok) throw new Error("Login failed");
+            const res = await response.json();
+    
+            const token = res.token;
+            // console.log(token)
+            document.cookie = `token=${token}; path=/`;
+            // router.push("/dashboard");
+            dispatch(handleLogin(true));
+            setTimeout(() => {
+              router.push("/dashboard");
+            }, 1500);
+          } catch (error) {
+            console.error(error);
+          }
+        }else{
+          setShowModal(!showModal)
+        }
+        // setShowModal(rez.session);
+        // setHasil(rez.session);
       });
     } catch (error) { setShowModal(false);}
+    // setShowModal(false);
 
-    if (hasil === false) {
-      try {
-        console.log('ngelogin')
-        let response = await fetch("http://localhost:8000/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json; charset=utf8",
-          },
-          body: JSON.stringify({
-            username: data.username,
-            password: data.password,
-          }),
-        });
-        // const response = await fetch("http://localhost:8000/users", {
-        //   method: "GET",
-        // });
-        // console.log(response)
-        if (!response.ok) throw new Error("Login failed");
-        const res = await response.json();
+    // if (hasil === false) {
 
-        const token = res.token;
-        // console.log(token)
-        document.cookie = `token=${token}; path=/`;
-        // router.push("/dashboard");
-        dispatch(handleLogin(true));
-        setTimeout(() => {
-          router.push("/dashboard");
-        }, 1500);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+      // try {
+      //   console.log('ngelogin')
+      //   let response = await fetch("http://localhost:8000/login", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json; charset=utf8",
+      //     },
+      //     body: JSON.stringify({
+      //       username: data.username,
+      //       password: data.password,
+      //     }),
+      //   });
+      //   if (!response.ok) throw new Error("Login failed");
+      //   const res = await response.json();
+
+      //   const token = res.token;
+      //   // console.log(token)
+      //   document.cookie = `token=${token}; path=/`;
+      //   // router.push("/dashboard");
+      //   dispatch(handleLogin(true));
+      //   setTimeout(() => {
+      //     router.push("/dashboard");
+      //   }, 1500);
+      // } catch (error) {
+      //   console.error(error);
+      // }
+    // }else if(hasil == true){
+    //   setShowModal(true);
+    // }
   }
 
   const closeModal = () => {
     setShowModal(false);
+    setHasil(false);
   };
 
   const openModal = () => {
-    console.log('modal', showModal)
     onSubmit(data);
     setShowModal(showModal);
   };
@@ -146,7 +177,7 @@ const Modal = ({
                   >
                     <Dialog.Panel
                       className={`w-full transform overflow-hidden rounded-md
-                 bg-white dark:bg-slate-800 text-left align-middle shadow-xl transition-alll ${className}`}
+                  bg-white dark:bg-slate-800 text-left align-middle shadow-xl transition-alll ${className}`}
                     >
                       <div
                         className={`relative overflow-hidden py-4 px-5 text-white flex justify-between  ${themeClass}`}
